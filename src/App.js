@@ -1,10 +1,11 @@
 
-import './App.css';
+import Test from './pages/Test';
 
 function App() {
+
   return (
     <div>
-      12345
+      <Test></Test>
     </div>
   );
 }
