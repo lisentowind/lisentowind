@@ -4,9 +4,11 @@ import React, { useEffect, useState } from 'react';
 import ClassTabel from "../../assets/css/ClassTable.module.less"
 import { Link } from 'react-router-dom';
 import { getCommodityClass } from "../../api/Commodity"
+import AddClass from '../../components/AddClass';
 
 
 export default function Classification() {
+  const [isVisible, setIsViible] = useState(false)
   const [parentId, setParentId] = useState(0)
   const columns = [
     {
@@ -41,6 +43,7 @@ export default function Classification() {
   // 初始化数据
   useEffect(() => {
     getDatas()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // 获取数据的方法
@@ -55,6 +58,7 @@ export default function Classification() {
   // 监听parentId的变化进行发请求
   useEffect(() => {
     getDatas()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [parentId])
 
   return (
@@ -68,7 +72,7 @@ export default function Classification() {
       <Card
         className={ClassTabel.tablecard}
         title={parentId === 0 ? "商品分类" : <Button type='primary' onClick={() => { setParentId(0) }}>返回上一级</Button>}
-        extra={<Button type='primary'>添加</Button>}
+        extra={<Button type='primary' onClick={() => setIsViible(true)}>添加</Button>}
 
       >
         <Table
@@ -91,7 +95,7 @@ export default function Classification() {
 
       </Card>
 
-
+      {isVisible ? <AddClass getDatas={getDatas} isVisible={setIsViible}></AddClass> : null}
 
     </div>
   )
