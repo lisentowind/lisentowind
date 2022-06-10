@@ -109,7 +109,6 @@ export default function Home() {
                             <Route path="/home/commodity/list" component={List} ></Route>
                             <Route path="/home/finance/wages" component={Wages} ></Route>
                             <Route path="/home/finance/achievemet" component={Achievemnt} ></Route>
-
                         </Switch>
 
 

@@ -1,9 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { Breadcrumb, Card, Button, Space, Table, Pagination } from 'antd';
-import React from 'react';
+import { Breadcrumb, Card, Button, Space, Table } from 'antd';
+import React, { useEffect, useState } from 'react';
 import ClassTabel from "../../assets/css/ClassTable.module.less"
+import { Link } from 'react-router-dom';
+import { getCommodityClass } from "../../api/Commodity"
+
 
 export default function Classification() {
+  const [parentId, setParentId] = useState(0)
   const columns = [
     {
       title: '类型名字',
@@ -20,10 +24,10 @@ export default function Classification() {
     {
       title: '操作',
       key: 'type',
-      render: () => {
+      render: (_, record) => {
         return (
           <Space>
-            <Button type='primary'>查看子分类</Button>
+            {parentId === 0 ? <Button type='primary' onClick={() => intoSubClass(record._id)} >查看子分类</Button> : null}
             <Button type='danger'>删除</Button>
           </Space>
         )
@@ -32,7 +36,8 @@ export default function Classification() {
     },
 
   ];
-  const data = [
+
+  const [data, setData] = useState([
     {
       key: '1',
       name: '家用电器',
@@ -74,24 +79,52 @@ export default function Classification() {
       type: "一级分类",
     },
 
-  ];
+  ])
+
+  useEffect(() => {
+    getDatas()
+  }, [])
+
+  const getDatas = async () => {
+    let res = await getCommodityClass({ parentId })
+    setData(res.data.data)
+  }
+
+  const intoSubClass = (id) => {
+    setParentId(id)
+  }
+
+  useEffect(() => {
+    getDatas()
+  }, [parentId])
+
   return (
     <div>
       <Breadcrumb>
-        <Breadcrumb.Item>首页</Breadcrumb.Item>
+        <Breadcrumb.Item><Link to="/home">首页</Link></Breadcrumb.Item>
         <Breadcrumb.Item>商品管理</Breadcrumb.Item>
         <Breadcrumb.Item>商品分类</Breadcrumb.Item>
       </Breadcrumb>
 
       <Card
         className={ClassTabel.tablecard}
-        title="商品分类"
+        title={parentId === 0 ? "商品分类" : <Button type='primary' onClick={() => { setParentId(0) }}>返回上一级</Button>}
         extra={<Button type='primary'>添加</Button>}
 
       >
         <Table
+          bordered
           columns={columns}
-          pagination={false}
+          // rowKey={(record) => record._id}
+          rowKey={(record) => record.name}
+          pagination={{
+            defaultPageSize: 4,
+            total: data.length,
+            pageSizeOptions: [4, 10, 20, 30],
+            showSizeChanger: true,
+            showQuickJumper: true,
+            showTotal: (total) => `总条数 ${total} 条`,
+          }}
           scroll={{
             y: 350,
           }}
@@ -99,13 +132,7 @@ export default function Classification() {
 
 
       </Card>
-      <Pagination
-        style={{ marginTop: "10px" }}
-        total={85}
-        showSizeChanger
-        showQuickJumper
-        showTotal={(total) => `Total ${total} items`}
-      />
+
 
 
     </div>
