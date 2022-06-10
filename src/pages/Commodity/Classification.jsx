@@ -37,63 +37,22 @@ export default function Classification() {
 
   ];
 
-  const [data, setData] = useState([
-    {
-      key: '1',
-      name: '家用电器',
-      type: "一级分类",
-    },
-    {
-      key: '2',
-      name: '数码产品',
-      type: "一级分类",
-    },
-    {
-      key: '3',
-      name: '鞋类箱包',
-      type: "一级分类",
-    },
-    {
-      key: '4',
-      name: '汽车用品',
-      type: "一级分类",
-    },
-    {
-      key: '5',
-      name: '母婴专柜',
-      type: "一级分类",
-    },
-    {
-      key: '6',
-      name: '运动户外',
-      type: "一级分类",
-    },
-    {
-      key: '7',
-      name: '珠宝首饰',
-      type: "一级分类",
-    },
-    {
-      key: '8',
-      name: '礼品鲜花',
-      type: "一级分类",
-    },
-
-  ])
-
+  const [data, setData] = useState([])
+  // 初始化数据
   useEffect(() => {
     getDatas()
   }, [])
 
+  // 获取数据的方法
   const getDatas = async () => {
     let res = await getCommodityClass({ parentId })
     setData(res.data.data)
   }
-
+  // 点击查看子类
   const intoSubClass = (id) => {
     setParentId(id)
   }
-
+  // 监听parentId的变化进行发请求
   useEffect(() => {
     getDatas()
   }, [parentId])
@@ -115,8 +74,7 @@ export default function Classification() {
         <Table
           bordered
           columns={columns}
-          // rowKey={(record) => record._id}
-          rowKey={(record) => record.name}
+          rowKey={(record) => record._id}
           pagination={{
             defaultPageSize: 4,
             total: data.length,
