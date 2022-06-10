@@ -13,10 +13,15 @@ import {
     Select,
     Upload,
     Input,
+    message,
 } from 'antd';
 import ImgCrop from 'antd-img-crop';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { getCommodityClass, addProductClass } from "../../api/Commodity.js"
+
+
+
 const { TextArea } = Input;
 const { Option } = Select;
 const formItemLayout = {
@@ -64,8 +69,29 @@ export default function AddProductList() {
         imgWindow?.document.write(image.outerHTML);
     };
 
-    const onFinish = (values) => {
-        console.log('Received values of form: ', values);
+    const [lists, setLists] = useState([])
+
+    useEffect(() => {
+        getProductClass()
+    }, [])
+
+    const getProductClass = async () => {
+        let res = await getCommodityClass({ parentId: 0 })
+
+        setLists(res.data.data)
+    }
+
+    const onFinish = async (values) => {
+        values.imgSrc = values.imgSrc ? values.imgSrc : "https://www.mocky.io/v2/5cc8019d300000980a055e76"
+        values.price = String(values.price)
+        let res = await addProductClass({ values })
+        if (res.code) {
+            message.success("添加成功")
+            history.push("/home/commodity/list")
+        } else {
+            message.error("添加失败")
+        }
+
     };
 
     const history = useHistory()
@@ -95,14 +121,32 @@ export default function AddProductList() {
                     }}
 
                 >
-                    <Form.Item label="商品名字" name="name">
+                    <Form.Item label="商品名字" name="name"
+                        rules={[
+                            {
+                                required: true,
+                                message: '输入商品名字 ',
+                            },
+                        ]}>
                         <Input />
                     </Form.Item>
-                    <Form.Item label="商品描述" name="title">
+                    <Form.Item label="商品描述" name="title"
+                        rules={[
+                            {
+                                required: true,
+                                message: '输入商品描述 ',
+                            },
+                        ]}>
                         <TextArea />
                     </Form.Item>
                     <Form.Item label="商品价格">
-                        <Form.Item name="price" noStyle>
+                        <Form.Item name="price" noStyle
+                            rules={[
+                                {
+                                    required: true,
+                                    message: '输入商品价格',
+                                },
+                            ]}>
                             <InputNumber min={1} max={100000} />
                         </Form.Item>
                         <span className="ant-form-text"> 元</span>
@@ -120,13 +164,13 @@ export default function AddProductList() {
                         ]}
                     >
                         <Select placeholder="请选择分类">
-                            <Option value="1">已</Option>
-                            <Option value="2">二</Option>
+                            {lists.map(item => <Option key={item._id} value={item._id}>{item.name}</Option>)}
+
                         </Select>
                     </Form.Item>
 
 
-                    <Form.Item label="上传图片">
+                    <Form.Item label="上传图片" name="imgSrc">
                         <ImgCrop rotate>
                             <Upload
                                 action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
@@ -140,7 +184,13 @@ export default function AddProductList() {
                         </ImgCrop>
                     </Form.Item>
 
-                    <Form.Item label="商品详情" name="msg">
+                    <Form.Item label="商品详情" name="msg"
+                        rules={[
+                            {
+                                required: true,
+                                message: '输入商品详情 ',
+                            },
+                        ]}>
                         <TextArea />
                     </Form.Item>
 

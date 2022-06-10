@@ -69,6 +69,7 @@ export default function List() {
   // 获取数据
   const getDatas = async () => {
     let res = await getAllProductList()
+    console.log(res.data);
     setData(res.data)
   }
 

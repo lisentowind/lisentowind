@@ -10,3 +10,5 @@ export const deleteCommodityClass = (data) => axios.post("/categroy/deleteCateGr
 export const getAllProductList = () => axios.get("/goods/findGoods")
 // 按照条件搜索
 export const findProductByType = (data) => axios.post("/goods/findGoodsByName", data)
+// 添加商品
+export const addProductClass=(data)=>axios.post("/goods/addGoods",data.values)
