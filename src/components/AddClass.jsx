@@ -1,4 +1,4 @@
-import { log } from '@craco/craco/lib/logger';
+
 import { Button, Modal, Form, Input, Select, message } from 'antd';
 import React, { useState } from 'react';
 import { getCommodityClass, addCommodityClass } from "../api/Commodity"
@@ -36,8 +36,6 @@ const AddClass = (props) => {
         }
 
     };
-
-
 
 
     const onFinish = async (values) => {

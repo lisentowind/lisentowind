@@ -30,7 +30,7 @@ export default function Classification() {
         return (
           <Space>
             {parentId === 0 ? <Button type='primary' onClick={() => intoSubClass(record._id)} >查看子分类</Button> : null}
-            <Button type='danger'>删除</Button>
+            <Button onClick={() => deleteById(record._id)} type='danger'>删除</Button>
           </Space>
         )
       }
@@ -38,6 +38,7 @@ export default function Classification() {
     },
 
   ];
+
 
   const [data, setData] = useState([])
   // 初始化数据
@@ -55,6 +56,12 @@ export default function Classification() {
   const intoSubClass = (id) => {
     setParentId(id)
   }
+
+  // 删除
+  const deleteById = (id) => {
+    console.log(id);
+  }
+
   // 监听parentId的变化进行发请求
   useEffect(() => {
     getDatas()
@@ -91,7 +98,6 @@ export default function Classification() {
             y: 350,
           }}
           dataSource={data} />
-
 
       </Card>
 

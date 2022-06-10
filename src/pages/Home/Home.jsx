@@ -92,10 +92,10 @@ export default function Home() {
                     <Content
                         className="site-layout-background"
                         style={{
-                            margin: '24px 16px',
+                            margin: '24px 16px  0px',
                             padding: 24,
                             minHeight: 280,
-                            // overflowY:'scroll'
+                            overflowY:'hidden'
                         }}
                     >
 
@@ -119,7 +119,7 @@ export default function Home() {
 
 
 
-                    <Footer style={{padding:"0px 50px 24px 50px ",textAlign:"center"}}>
+                    <Footer style={{ boxSizing:'border-box',padding:"10px 50px",textAlign:"center"}}>
                         蜗牛学苑@2022/6/9
                     </Footer>
                 </Layout>

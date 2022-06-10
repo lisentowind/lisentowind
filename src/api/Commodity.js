@@ -3,4 +3,6 @@ import axios from "../utils/axiosUtils";
 // 获取所有分类
 export const getCommodityClass = (id) => axios.get("/categroy/findCategroy", { params: id })
 // 添加分类
-export const addCommodityClass = (data)=> axios.post("/categroy/addCategroy",data)
+export const addCommodityClass = (data) => axios.post("/categroy/addCategroy", data)
+// 删除分类
+export const deleteCommodityClass = (data) => axios.post("/categroy/deleteCateGroy", data)
