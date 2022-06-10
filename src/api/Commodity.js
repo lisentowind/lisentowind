@@ -6,3 +6,7 @@ export const getCommodityClass = (id) => axios.get("/categroy/findCategroy", { p
 export const addCommodityClass = (data) => axios.post("/categroy/addCategroy", data)
 // 删除分类
 export const deleteCommodityClass = (data) => axios.post("/categroy/deleteCateGroy", data)
+// 获取所有商品列表
+export const getAllProductList = () => axios.get("/goods/findGoods")
+// 按照条件搜索
+export const findProductByType = (data) => axios.post("/goods/findGoodsByName", data)

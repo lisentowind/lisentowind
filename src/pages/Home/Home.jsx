@@ -19,6 +19,7 @@ import Classification from "../Commodity/Classification"
 import List from "../Commodity/List"
 import Wages from "../Finance/Wages"
 import Achievemnt from "../Finance/Achievement"
+import AddProductList from '../Commodity/AddProductList';
 
 
 const { Header, Sider, Content, Footer } = Layout;
@@ -95,7 +96,7 @@ export default function Home() {
                             margin: '24px 16px  0px',
                             padding: 24,
                             minHeight: 280,
-                            overflowY:'hidden'
+                            overflowY:"scroll"
                         }}
                     >
 
@@ -107,6 +108,7 @@ export default function Home() {
                             <Route path="/home/shop" component={Shop} ></Route>
                             <Route path="/home/commodity/classification" component={Classification} ></Route>
                             <Route path="/home/commodity/list" component={List} ></Route>
+                            <Route path="/home/commodity/AddProductList" component={AddProductList} ></Route>
                             <Route path="/home/finance/wages" component={Wages} ></Route>
                             <Route path="/home/finance/achievemet" component={Achievemnt} ></Route>
                         </Switch>
@@ -119,7 +121,7 @@ export default function Home() {
 
 
 
-                    <Footer style={{ boxSizing:'border-box',padding:"10px 50px",textAlign:"center"}}>
+                    <Footer style={{ boxSizing: 'border-box', padding: "10px 50px", textAlign: "center" }}>
                         蜗牛学苑@2022/6/9
                     </Footer>
                 </Layout>
