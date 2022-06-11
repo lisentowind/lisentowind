@@ -69,7 +69,7 @@ export default function Classification() {
   }, [parentId])
 
   return (
-    <div>
+    <div style={{ height: "95%" }}>
       <Breadcrumb>
         <Breadcrumb.Item><Link to="/home">首页</Link></Breadcrumb.Item>
         <Breadcrumb.Item>商品管理</Breadcrumb.Item>
@@ -77,6 +77,7 @@ export default function Classification() {
       </Breadcrumb>
 
       <Card
+        style={{ height: "100%" }}
         className={ClassTabel.tablecard}
         title={parentId === 0 ? "商品分类" : <Button type='primary' onClick={() => { setParentId(0) }}>返回上一级</Button>}
         extra={<Button type='primary' onClick={() => setIsViible(true)}>添加</Button>}
@@ -95,7 +96,7 @@ export default function Classification() {
             showTotal: (total) => `总条数 ${total} 条`,
           }}
           scroll={{
-            y: 350,
+            y: 400,
           }}
           dataSource={data} />
 

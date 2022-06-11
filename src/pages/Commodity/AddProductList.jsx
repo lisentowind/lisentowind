@@ -77,7 +77,6 @@ export default function AddProductList() {
 
     const getProductClass = async () => {
         let res = await getCommodityClass({ parentId: 0 })
-
         setLists(res.data.data)
     }
 

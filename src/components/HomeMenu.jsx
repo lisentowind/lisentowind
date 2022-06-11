@@ -46,7 +46,7 @@ export default function HomeMenu() {
                     <Link to="/home/commodity/list">商品列表</Link>
                 </Menu.Item>
             </Menu.SubMenu>
-            
+
             <Menu.SubMenu key="6" icon={<MoneyCollectOutlined />} title="财务管理">
                 <Menu.Item key="6-1" icon={<DatabaseOutlined />}>
                     <Link to="/home/finance/wages">工资数据</Link>
