@@ -91,10 +91,7 @@ export default function Role() {
             y: 350,
           }}
           dataSource={data} />
-
       </Card>
-
-
     </div>
   )
 }
