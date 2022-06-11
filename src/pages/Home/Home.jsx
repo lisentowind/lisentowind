@@ -96,7 +96,7 @@ export default function Home() {
                             margin: '24px 16px  0px',
                             padding: 24,
                             minHeight: 280,
-                            overflowY:"scroll"
+                            overflowY: "scroll"
                         }}
                     >
 
@@ -112,17 +112,9 @@ export default function Home() {
                             <Route path="/home/finance/wages" component={Wages} ></Route>
                             <Route path="/home/finance/achievemet" component={Achievemnt} ></Route>
                         </Switch>
-
-
-
                     </Content>
-
-
-
-
-
                     <Footer style={{ boxSizing: 'border-box', padding: "10px 50px", textAlign: "center" }}>
-                        蜗牛学苑@2022/6/9
+                        shisanlailin@code builder@2022-6-9
                     </Footer>
                 </Layout>
             </Layout>
