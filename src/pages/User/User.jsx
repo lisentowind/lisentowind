@@ -25,7 +25,7 @@ export default function User() {
       title: '角色',
       dataIndex: 'role',
       key: 'role',
-      render: (role) => role?<a>{role.name}</a>:null
+      render: (role) => role ? <a>{role.name}</a> : null
     },
     {
       title: '操作',
