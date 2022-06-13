@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { Breadcrumb, Card, Button, Space, Table } from 'antd';
+import { Card, Button, Space, Table } from 'antd';
 import React, { useEffect, useState } from 'react';
 import ClassTabel from "../../assets/css/ClassTable.module.less"
-import { Link } from 'react-router-dom';
+
 import { getCommodityClass } from "../../api/Commodity"
 import AddClass from '../../components/AddClass';
 
@@ -70,11 +70,7 @@ export default function Classification() {
 
   return (
     <div style={{ height: "95%" }}>
-      <Breadcrumb>
-        <Breadcrumb.Item><Link to="/home">首页</Link></Breadcrumb.Item>
-        <Breadcrumb.Item>商品管理</Breadcrumb.Item>
-        <Breadcrumb.Item>商品分类</Breadcrumb.Item>
-      </Breadcrumb>
+      
 
       <Card
         style={{ height: "100%" }}

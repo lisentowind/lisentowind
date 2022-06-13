@@ -3,9 +3,9 @@
 
 
 import ClassTabel from "../../assets/css/ClassTable.module.less"
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import {
-    Breadcrumb,
+
     Card,
     Button,
     Form,
@@ -73,11 +73,7 @@ export default function AddProductList() {
 
     return (
         <div>
-            <Breadcrumb>
-                <Breadcrumb.Item><Link to="/home">首页</Link></Breadcrumb.Item>
-                <Breadcrumb.Item>商品管理</Breadcrumb.Item>
-                <Breadcrumb.Item>商品添加</Breadcrumb.Item>
-            </Breadcrumb>
+           
 
             <Card
                 className={ClassTabel.tablecard}

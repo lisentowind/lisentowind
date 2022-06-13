@@ -11,6 +11,7 @@ import React, { useState } from 'react';
 import menulogo from "../../assets/images/logo-250px.png"
 import HomeMenu from '../../components/HomeMenu';
 import { Route, Redirect, Switch } from "react-router-dom"
+import MyBreadcrumb from '../../components/MyBreadcrumb';
 import HomeIndex from "../HomeIndex/HomeIndex"
 import User from "../User/User"
 import Role from "../Role/Role"
@@ -99,19 +100,21 @@ export default function Home() {
                             overflowY: "scroll"
                         }}
                     >
-
-                        <Switch>
-                            <Redirect exact from='/home' to="/home/main"></Redirect>
-                            <Route path="/home/main" component={HomeIndex} ></Route>
-                            <Route path="/home/user" component={User} ></Route>
-                            <Route path="/home/role" component={Role} ></Route>
-                            <Route path="/home/shop" component={Shop} ></Route>
-                            <Route path="/home/commodity/classification" component={Classification} ></Route>
-                            <Route path="/home/commodity/list" component={List} ></Route>
-                            <Route path="/home/commodity/AddProductList" component={AddProductList} ></Route>
-                            <Route path="/home/finance/wages" component={Wages} ></Route>
-                            <Route path="/home/finance/achievemet" component={Achievemnt} ></Route>
-                        </Switch>
+                        <>
+                           <MyBreadcrumb></MyBreadcrumb>
+                            <Switch>
+                                <Redirect exact from='/home' to="/home/main"></Redirect>
+                                <Route path="/home/main" component={HomeIndex} ></Route>
+                                <Route path="/home/user" component={User} ></Route>
+                                <Route path="/home/role" component={Role} ></Route>
+                                <Route path="/home/shop" component={Shop} ></Route>
+                                <Route path="/home/commodity/classification" component={Classification} ></Route>
+                                <Route path="/home/commodity/list" component={List} ></Route>
+                                <Route path="/home/commodity/AddProductList" component={AddProductList} ></Route>
+                                <Route path="/home/finance/wages" component={Wages} ></Route>
+                                <Route path="/home/finance/achievemet" component={Achievemnt} ></Route>
+                            </Switch>
+                        </>
                     </Content>
                     <Footer style={{ boxSizing: 'border-box', padding: "10px 50px", textAlign: "center" }}>
                         shisanlailin@code builder@2022-6-9

@@ -107,11 +107,7 @@ export default function List() {
 
   return (
     <div>
-      <Breadcrumb>
-        <Breadcrumb.Item><Link to="/home">首页</Link></Breadcrumb.Item>
-        <Breadcrumb.Item>商品管理</Breadcrumb.Item>
-        <Breadcrumb.Item>商品列表</Breadcrumb.Item>
-      </Breadcrumb>
+
 
       <Card
         className={ClassTabel.tablecard}
