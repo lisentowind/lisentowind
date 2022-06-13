@@ -21,7 +21,7 @@ import List from "../Commodity/List"
 import Wages from "../Finance/Wages"
 import Achievemnt from "../Finance/Achievement"
 import AddProductList from '../Commodity/AddProductList';
-
+import NotFound from '../NotFound/NotFound';
 
 const { Header, Sider, Content, Footer } = Layout;
 const menu = (
@@ -101,7 +101,7 @@ export default function Home() {
                         }}
                     >
                         <>
-                           <MyBreadcrumb></MyBreadcrumb>
+                            <MyBreadcrumb></MyBreadcrumb>
                             <Switch>
                                 <Redirect exact from='/home' to="/home/main"></Redirect>
                                 <Route path="/home/main" component={HomeIndex} ></Route>
@@ -113,6 +113,7 @@ export default function Home() {
                                 <Route path="/home/commodity/AddProductList" component={AddProductList} ></Route>
                                 <Route path="/home/finance/wages" component={Wages} ></Route>
                                 <Route path="/home/finance/achievemet" component={Achievemnt} ></Route>
+                                <Route component={NotFound} />
                             </Switch>
                         </>
                     </Content>
