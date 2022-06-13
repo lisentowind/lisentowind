@@ -10,20 +10,16 @@ import {
     Button,
     Form,
     InputNumber,
-    Select,
-    Upload,
     Input,
     message,
+    Cascader
 } from 'antd';
-import ImgCrop from 'antd-img-crop';
+import UploadImg from "../../components/UploadImg"
 
 import React, { useEffect, useState } from 'react';
-import { getCommodityClass, addProductClass } from "../../api/Commodity.js"
-
-
+import { getProductTree, addProductClass } from "../../api/Commodity.js"
 
 const { TextArea } = Input;
-const { Option } = Select;
 const formItemLayout = {
     labelCol: {
         span: 6,
@@ -36,53 +32,25 @@ const formItemLayout = {
 
 
 
-
 export default function AddProductList() {
-    const [fileList, setFileList] = useState([
-        {
-            uid: '-1',
-            name: 'image.png',
-            status: 'done',
-            url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-        },
-    ]);
+    const [options, setOptions] = useState([])
+    const [selectType, setSelectType] = useState([])
+    const [fileNames, setFileNames] = useState("")
 
-    const onChange = ({ fileList: newFileList }) => {
-        setFileList(newFileList);
-    };
-
-    const onPreview = async (file) => {
-        let src = file.url;
-
-        if (!src) {
-            src = await new Promise((resolve) => {
-                const reader = new FileReader();
-                reader.readAsDataURL(file.originFileObj);
-
-                reader.onload = () => resolve(reader.result);
-            });
-        }
-
-        const image = new Image();
-        image.src = src;
-        const imgWindow = window.open(src);
-        imgWindow?.document.write(image.outerHTML);
-    };
-
-    const [lists, setLists] = useState([])
 
     useEffect(() => {
         getProductClass()
     }, [])
 
     const getProductClass = async () => {
-        let res = await getCommodityClass({ parentId: 0 })
-        setLists(res.data.data)
+        let res = await getProductTree()
+        setOptions(res.data)
     }
 
     const onFinish = async (values) => {
-        values.imgSrc = values.imgSrc ? values.imgSrc : "https://www.mocky.io/v2/5cc8019d300000980a055e76"
+        values.imgSrc = fileNames
         values.price = String(values.price)
+        values.type = selectType
         let res = await addProductClass({ values })
         if (res.code) {
             message.success("添加成功")
@@ -92,8 +60,16 @@ export default function AddProductList() {
         }
 
     };
+    const onChanges = (_, value2) => {
+        setSelectType(value2[1].id)
+    };
+    const displayRender = (labels) => labels[labels.length - 1]
+    const history = useHistory();
 
-    const history = useHistory()
+    const getFilenames = (name) => {
+        setFileNames(name)
+    }
+
 
     return (
         <div>
@@ -138,7 +114,7 @@ export default function AddProductList() {
                         ]}>
                         <TextArea />
                     </Form.Item>
-                    <Form.Item label="商品价格">
+                    <Form.Item label="商品价格" >
                         <Form.Item name="price" noStyle
                             rules={[
                                 {
@@ -162,25 +138,22 @@ export default function AddProductList() {
                             },
                         ]}
                     >
-                        <Select placeholder="请选择分类">
-                            {lists.map(item => <Option key={item._id} value={item._id}>{item.name}</Option>)}
 
-                        </Select>
+                        <Cascader
+                            options={options}
+                            expandTrigger="hover"
+                            displayRender={displayRender}
+                            onChange={onChanges}
+                        />
                     </Form.Item>
 
 
                     <Form.Item label="上传图片" name="imgSrc">
-                        <ImgCrop rotate>
-                            <Upload
-                                action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-                                listType="picture-card"
-                                fileList={fileList}
-                                onChange={onChange}
-                                onPreview={onPreview}
-                            >
-                                {fileList.length < 5 && '+ Upload'}
-                            </Upload>
-                        </ImgCrop>
+                        <UploadImg getFilenames={getFilenames}></UploadImg>
+
+
+
+
                     </Form.Item>
 
                     <Form.Item label="商品详情" name="msg"

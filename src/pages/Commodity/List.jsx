@@ -31,6 +31,12 @@ export default function List() {
       key: 'type',
       render: (type) => type ? <a>{type.name}</a> : "暂无数据"
     },
+    // {
+    //   title: '商品图片',
+    //   dataIndex: 'imgSrc',
+    //   key: 'imgSrc',
+    //   render: (imgSrc) => imgSrc ? <img width={100} src={"http://127.0.0.1:8002/images/goods/" + imgSrc} alt="" /> : "暂无数据"
+    // },
     {
       title: '商品状态',
       dataIndex: 'state',

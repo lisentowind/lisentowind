@@ -11,4 +11,7 @@ export const getAllProductList = () => axios.get("/goods/findGoods")
 // 按照条件搜索
 export const findProductByType = (data) => axios.post("/goods/findGoodsByName", data)
 // 添加商品
-export const addProductClass=(data)=>axios.post("/goods/addGoods",data.values)
+export const addProductClass = (data) => axios.post("/goods/addGoods", data.values)
+// 获取树形结构产品数据
+export const getProductTree = () => axios.get("/categroy/findAllCategroy")
+
