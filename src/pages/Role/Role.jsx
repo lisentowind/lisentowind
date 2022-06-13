@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { Card, Button, Space, Table } from 'antd';
+import { Card, Button, Space, Table, Modal, Input, Form, message } from 'antd';
 import React, { useEffect, useState } from 'react';
 import ClassTabel from "../../assets/css/ClassTable.module.less"
-
-import { getAllRoles } from "../../api/Role"
+import { getAllRoles, addRole } from "../../api/Role"
+import Auther from '../../components/Auther';
 
 export default function Role() {
 
@@ -39,7 +39,7 @@ export default function Role() {
         return (
           <Space>
             <Button type='danger'>删除</Button>
-            <Button type='primary'>授权</Button>
+            <Button type='primary' onClick={() => authoRization(record)}>授权</Button>
           </Space>
         )
       }
@@ -47,6 +47,28 @@ export default function Role() {
     },
 
   ];
+  const [hiden, setHiden] = useState(false)
+  const [rows, setRows] = useState({})
+
+
+  // 添加角色
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const onFinish = async (values) => {
+    let cTime = new Date().toLocaleDateString().split("/").join("-")
+    values.createTime = cTime
+    console.log(values);
+    let res = await addRole(values)
+    if (res.code) {
+      getDatas()
+      message.success("添加成功")
+      setModalVisible(false)
+    } else {
+      message.error("添加失败")
+    }
+
+  };
+
 
 
   const [data, setData] = useState([])
@@ -59,17 +81,32 @@ export default function Role() {
   // 获取数据的方法
   const getDatas = async () => {
     let res = await getAllRoles()
-    console.log(res.data);
     setData(res.data)
   }
 
+  // 授权
+  const authoRization = (record) => {
+    setHiden(true)
+    setRows(record)
+
+  }
+
+  const setHidens = () => {
+    setHiden(false)
+    getDatas()
+
+  }
+
+
+
+
   return (
     <div>
-      
+
 
       <Card
         className={ClassTabel.tablecard}
-        title={<Button type='primary'>添加角色</Button>}
+        title={<Button onClick={() => setModalVisible(true)} type='primary'>添加角色</Button>}
 
       >
         <Table
@@ -88,6 +125,60 @@ export default function Role() {
             y: 350,
           }}
           dataSource={data} />
+
+        <Modal
+          title="添加角色"
+          centered
+          visible={modalVisible}
+          onOk={() => setModalVisible(false)}
+          onCancel={() => setModalVisible(false)}
+        >
+
+          <Form
+            name="basic"
+            labelCol={{
+              span: 8,
+            }}
+            wrapperCol={{
+              span: 12,
+            }}
+            initialValues={{
+              remember: true,
+            }}
+            onFinish={onFinish}
+            autoComplete="off"
+          >
+            <Form.Item
+              label="角色名"
+              name="name"
+              rules={[
+                {
+                  required: true,
+                  message: '输入角色名',
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+
+            <Form.Item
+              wrapperCol={{
+                offset: 8,
+                span: 16,
+              }}
+            >
+              <Button type="primary" htmlType="submit">
+                添加角色
+              </Button>
+            </Form.Item>
+          </Form>
+        </Modal>
+
+        {/*授权  */}
+        {hiden ? <Auther rows={rows} setHidens={setHidens}></Auther> : ""}
+
+
+
       </Card>
     </div>
   )
