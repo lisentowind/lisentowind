@@ -10,7 +10,7 @@ const routerConfig = {
     "/home/role": "角色管理",
     "/home/shop": "店铺管理",
     "/home/commodity": "商品管理",
-    "/home/commodity/classification ": "商品分类",
+    "/home/commodity/classification": "商品分类",
     "/home/commodity/list": "商品列表",
     "/home/commodity/AddProductList": "商品添加",
     "/home/finance": "财务管理",

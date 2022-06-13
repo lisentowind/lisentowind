@@ -1,13 +1,22 @@
-import React from 'react'
-import { Empty } from 'antd';
+import { Button, Result } from 'antd';
+import React from 'react';
 
-export default function NotFound() {
+const NotFound = (props) => {
+    const gohome = () => {
+        props.history.push({
+            pathname: "/home",
+        })
+    }
+
     return (
-        <div style={{ width: "auto", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <div>
-                <h1 style={{ color: "red", fontWeight: 'bold', }}>404未找到该页面</h1>
-                <Empty />
-            </div>
-        </div>
+        <Result
+            status="404"
+            title="404"
+            subTitle="很抱歉，你访问的页面不存在"
+            extra={< Button onClick={() => gohome()} type="primary" > 返回首页</ Button>}
+        />
+
     )
 }
+
+export default NotFound;
