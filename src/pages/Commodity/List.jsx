@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { Card, Button, Space, Table, Input, Select } from 'antd';
+import { Card, Button, Space, Table, Input, Select, message } from 'antd';
 import React, { useEffect, useState } from 'react';
 import ClassTabel from "../../assets/css/ClassTable.module.less"
-import {  useHistory } from 'react-router-dom';
-import { getAllProductList, findProductByType } from "../../api/Commodity"
+import { useHistory } from 'react-router-dom';
+import { getAllProductList, findProductByType, deleteProductById } from "../../api/Commodity"
 
 const { Option } = Select
 
@@ -31,12 +31,6 @@ export default function List() {
       key: 'type',
       render: (type) => type ? <a>{type.name}</a> : "暂无数据"
     },
-    // {
-    //   title: '商品图片',
-    //   dataIndex: 'imgSrc',
-    //   key: 'imgSrc',
-    //   render: (imgSrc) => imgSrc ? <img width={100} src={"http://127.0.0.1:8002/images/goods/" + imgSrc} alt="" /> : "暂无数据"
-    // },
     {
       title: '商品状态',
       dataIndex: 'state',
@@ -55,7 +49,7 @@ export default function List() {
         return (
           <Space>
             <Button type='primary'>详情</Button>
-            <Button type='danger'>删除</Button>
+            <Button onClick={() => deleteProduct(record._id)} type='danger'>删除</Button>
           </Space>
         )
       }
@@ -75,7 +69,6 @@ export default function List() {
   // 获取数据
   const getDatas = async () => {
     let res = await getAllProductList()
-    console.log(res.data);
     setData(res.data)
   }
 
@@ -83,6 +76,17 @@ export default function List() {
   const toSearch = async () => {
     let res = await findProductByType({ searchType, searchData })
     setData(res.data)
+  }
+
+  // 删除商品
+  const deleteProduct = async (id) => {
+    let res = await deleteProductById({ id })
+    if (res.code) {
+      message.success("删除成功")
+      getDatas()
+    } else {
+      message.error("删除失败")
+    }
   }
 
   const title = (

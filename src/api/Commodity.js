@@ -14,4 +14,6 @@ export const findProductByType = (data) => axios.post("/goods/findGoodsByName", 
 export const addProductClass = (data) => axios.post("/goods/addGoods", data.values)
 // 获取树形结构产品数据
 export const getProductTree = () => axios.get("/categroy/findAllCategroy")
+// 删除商品
+export const deleteProductById = (data)=>axios.post("/goods/deleteGoods",data)
 

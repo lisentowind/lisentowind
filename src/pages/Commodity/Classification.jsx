@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { Card, Button, Space, Table } from 'antd';
+import { Card, Button, Space, Table, message } from 'antd';
 import React, { useEffect, useState } from 'react';
 import ClassTabel from "../../assets/css/ClassTable.module.less"
 
-import { getCommodityClass } from "../../api/Commodity"
+import { getCommodityClass, deleteCommodityClass } from "../../api/Commodity"
 import AddClass from '../../components/AddClass';
 
 
@@ -58,8 +58,14 @@ export default function Classification() {
   }
 
   // 删除
-  const deleteById = (id) => {
-    console.log(id);
+  const deleteById = async (id) => {
+    let res = await deleteCommodityClass({ id: id })
+    if (res.code) {
+      message.success("删除成功")
+      getDatas()
+    } else {
+      message.error("删除失败")
+    }
   }
 
   // 监听parentId的变化进行发请求
@@ -70,7 +76,7 @@ export default function Classification() {
 
   return (
     <div style={{ height: "95%" }}>
-      
+
 
       <Card
         style={{ height: "100%" }}

@@ -2,7 +2,7 @@
 import { Card, Button, Space, Table, Modal, Input, Form, message } from 'antd';
 import React, { useEffect, useState } from 'react';
 import ClassTabel from "../../assets/css/ClassTable.module.less"
-import { getAllRoles, addRole } from "../../api/Role"
+import { getAllRoles, addRole, deleteRoleById } from "../../api/Role"
 import Auther from '../../components/Auther';
 
 export default function Role() {
@@ -38,7 +38,7 @@ export default function Role() {
       render: (_, record) => {
         return (
           <Space>
-            <Button type='danger'>删除</Button>
+            <Button type='danger' onClick={() => deleteRole(record._id)}>删除</Button>
             <Button type='primary' onClick={() => authoRization(record)}>授权</Button>
           </Space>
         )
@@ -95,6 +95,17 @@ export default function Role() {
     setHiden(false)
     getDatas()
 
+  }
+
+  // 删除角色
+  const deleteRole = async (id) => {
+    let res = await deleteRoleById({id:id})
+    if(res.code){
+      message.success("删除成功")
+      getDatas()
+    }else{
+      message.success("删除失败")
+    }
   }
 
 
