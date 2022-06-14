@@ -3760,6 +3760,11 @@ default-gateway@^6.0.3:
   dependencies:
     execa "^5.0.0"
 
+default-passive-events@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmmirror.com/default-passive-events/-/default-passive-events-2.0.0.tgz#79b1aa67becbaab38b718469b5480fef92eda649"
+  integrity sha512-eMtt76GpDVngZQ3ocgvRcNCklUMwID1PaNbCNxfpDXuiOXttSh0HzBbda1HU9SIUsDc02vb7g9+3I5tlqe/qMQ==
+
 define-lazy-prop@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmmirror.com/define-lazy-prop/-/define-lazy-prop-2.0.0.tgz#3f7ae421129bcaaac9bc74905c98a0009ec9ee7f"

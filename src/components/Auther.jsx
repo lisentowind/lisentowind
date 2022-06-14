@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { message, Modal, Tree } from 'antd';
 import { authoRization } from "../api/Role"
 import React, { useEffect, useState } from 'react';
