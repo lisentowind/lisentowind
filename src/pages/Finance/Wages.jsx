@@ -44,20 +44,14 @@ export default function Wages() {
   const [dataList, setDataList] = useState([])
 
 
-
   // 获取所有分类
   const getAllClass = async () => {
     // 获取一级分类
     let res = await getTbaleInfo({ parentId: 0 })
     let arr = res.data
     let array = arr.filter(item => item.children.length !== 0).map(item => { return { value: item.children.length, name: item.value } })
-
-    console.log(array);
     setDataList(array)
-
   }
-
-
   return (
     <>
       <Card

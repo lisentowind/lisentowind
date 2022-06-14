@@ -53,7 +53,6 @@ export default function Achievement() {
     let className = new Map()
     // 筛选数据
     all.forEach(item => {
-
       if (!className.has(item.type.name)) {
         className.set(item.type.name, 1)
       } else {
