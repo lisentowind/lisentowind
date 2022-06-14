@@ -147,6 +147,10 @@ export default function User() {
                   required: true,
                   message: '输入用户名',
                 },
+                {
+                  pattern: /^[0-9A-Za-z]{6,10}$/,
+                  message: '用户名由6到10位的数字字母组成！！',
+              },
               ]}
             >
               <Input />
@@ -159,6 +163,10 @@ export default function User() {
                   required: true,
                   message: '输入密码',
                 },
+                {
+                  pattern: /^\d{6,10}$/,
+                  message: '密码由6到10位数字组成',
+              },
               ]}
             >
               <Input.Password />

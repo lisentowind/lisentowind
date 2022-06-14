@@ -1,16 +1,16 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
-import { Space, Layout, Menu, Dropdown } from 'antd';
+import { Space, Layout, Menu, Dropdown, message } from 'antd';
 import {
     MenuFoldOutlined,
     MenuUnfoldOutlined,
     DownOutlined
 } from '@ant-design/icons';
 import "../../assets/css/Box.less"
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import menulogo from "../../assets/images/logo-250px.png"
 import HomeMenu from '../../components/HomeMenu';
-import { Route, Redirect, Switch } from "react-router-dom"
+import { Route, Redirect, Switch, useHistory } from "react-router-dom"
 import MyBreadcrumb from '../../components/MyBreadcrumb';
 import HomeIndex from "../HomeIndex/HomeIndex"
 import User from "../User/User"
@@ -24,23 +24,36 @@ import AddProductList from '../Commodity/AddProductList';
 import NotFound from '../NotFound/NotFound';
 
 const { Header, Sider, Content, Footer } = Layout;
-const menu = (
-    <Menu
-        items={[
-            {
-                key: '1',
-                label: "修改密码"
-            }, {
-                key: '2',
-                label: "退出登录"
-            }
-        ]}
-    />
-);
 
 export default function Home() {
-
+    const menu = (
+        <Menu
+            items={[
+                {
+                    key: '1',
+                    label: "修改密码"
+                }, {
+                    key: '2',
+                    label: (
+                        <span onClick={() => logout()}>退出登录</span>
+                    )
+                }
+            ]}
+        />
+    );
+    const history = useHistory()
+    const logout = () => {
+        localStorage.removeItem("token")
+        localStorage.removeItem("userInfo")
+        message.success("退出成功，请重新登录")
+        history.push("/login")
+    }
+    const [userInfoName, setUserInfoName] = useState("")
     const [collapsed, setCollapsed] = useState(false);
+    useEffect(() => {
+        let res = localStorage.getItem("userInfo") || "{}"
+        setUserInfoName((JSON.parse(res)).account)
+    }, [])
 
     return (
         <div>
@@ -71,7 +84,7 @@ export default function Home() {
 
                         <div>
                             <Space>
-                                <span>欢迎你,周晓东</span>
+                                <span>欢迎你,{userInfoName}</span>
 
                                 <Dropdown overlay={menu} placement="bottomRight" arrow={{
                                     pointAtCenter: true,
@@ -118,7 +131,7 @@ export default function Home() {
                         </>
                     </Content>
                     <Footer style={{ boxSizing: 'border-box', padding: "10px 50px", textAlign: "center" }}>
-                        shisanlailin@code builder@2022-6-9
+                        shisanlailinde of code builder@2022-6-9
                     </Footer>
                 </Layout>
             </Layout>

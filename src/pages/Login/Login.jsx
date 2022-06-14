@@ -1,14 +1,25 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Button, Space, Checkbox, Form, Input } from 'antd';
-import { Link } from "react-router-dom"
+import { Button, Space, Checkbox, Form, Input, message } from 'antd';
+import { Link, useHistory } from "react-router-dom"
 import logo from "../../assets/images/logo-250px.png"
 import login from "../../assets/css/Login.module.less"
 import "../../assets/css/HomeAntd.less"
+import { logins } from "../../api/User"
 export default function Login() {
-    const onFinish = (values) => {
-        console.log('表单信息', values);
+    let history = useHistory()
+    const onFinish = async (values) => {
+        let res = await logins(values)
+        if (res.code) {
+            localStorage.setItem("token", res.data.token)
+            localStorage.setItem("userInfo", JSON.stringify(res.data.userInfo))
+            message.success("登录成功")
+            setTimeout(() => {
+                history.replace("/home")
+            }, 150);
+
+        }
     };
     return (
         <div>
@@ -29,7 +40,7 @@ export default function Login() {
                         >
                             {/* 用户名 */}
                             <Form.Item
-                                name="username"
+                                name="account"
                                 rules={[
                                     {
                                         required: true,
@@ -53,12 +64,12 @@ export default function Login() {
                                         message: '密码不可以为空',
                                     },
                                     {
-                                        pattern: /^[a-zA-Z]\d{5,10}$/,
-                                        message: '密码由6到10位字母开头和数字组成',
+                                        pattern: /^\d{6,10}$/,
+                                        message: '密码由6到10位数字组成',
                                     },
                                 ]}
                             >
-                               <Input.Password
+                                <Input.Password
                                     prefix={<LockOutlined className="site-form-item-icon" />}
                                     type="password"
                                     placeholder="Password"
