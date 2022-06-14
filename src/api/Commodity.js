@@ -15,5 +15,6 @@ export const addProductClass = (data) => axios.post("/goods/addGoods", data.valu
 // 获取树形结构产品数据
 export const getProductTree = () => axios.get("/categroy/findAllCategroy")
 // 删除商品
-export const deleteProductById = (data)=>axios.post("/goods/deleteGoods",data)
-
+export const deleteProductById = (data) => axios.post("/goods/deleteGoods", data)
+// 级联
+export const getTbaleInfo = (id) => axios.get("categroy/findAllCategroy", { params: id })

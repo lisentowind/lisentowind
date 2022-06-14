@@ -12,7 +12,7 @@ const routerConfig = {
     "/home/commodity": "商品管理",
     "/home/commodity/classification": "商品分类",
     "/home/commodity/list": "商品列表",
-    "/home/commodity/AddProductList": "商品添加",
+    "/home/commodity/c": "商品添加",
     "/home/finance": "财务管理",
     "/home/finance/wages": "工资数据",
     "/home/finance/achievemet": "销售业绩",

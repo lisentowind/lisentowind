@@ -4,7 +4,7 @@ import React from 'react';
 const NotFound = (props) => {
     const gohome = () => {
         props.history.push({
-            pathname: "/home",
+            pathname: "/",
         })
     }
 
