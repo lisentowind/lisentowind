@@ -53,13 +53,17 @@ export default function Achievement() {
     let className = new Map()
     // 筛选数据
     all.forEach(item => {
+      // 先判断有没有这个属性没有就放一个属性，值为1
       if (!className.has(item.type.name)) {
         className.set(item.type.name, 1)
       } else {
+        // 否则就将值取出，加1
         let num = className.get(item.type.name) + 1
         className.set(item.type.name, num)
       }
     });
+    
+    // 结构为二维数组
     let arr = [...className]
     // 转换数据格式
     let newArr = arr.map(item => {
