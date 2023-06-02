@@ -1,7 +1,7 @@
 <h1>👋 一个菜鸟中的菜鸟，没错就是我 hhh</h1>
 <br />
 
-<h4>这是我的个人博客，PS；有空才写 ☺ https://tingfenghhh.github.io/dist/index.html#/work-experience</h4>
+<h4>这是我的个人博客，PS: 有空才写 ☺     https://tingfenghhh.github.io/dist/index.html#/work-experience</h4>
 
 <p> 我常用的一些语言 </p>
 <br />
