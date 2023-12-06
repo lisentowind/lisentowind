@@ -1,4 +1,4 @@
-<h1>👋 一个菜鸟中的菜鸟，没错就是我 hhh</h1>
+<h1>👋 一个菜鸟中的菜鸟，没错就是我 HaHa</h1>
 <br />
 
 <h4>这是我的个人博客，PS: 有空才写 ☺     https://tingfenghhh.github.io/dist/index.html#/work-experience</h4>
