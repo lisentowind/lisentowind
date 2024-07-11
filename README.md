@@ -6,7 +6,7 @@
 <p> 我常用的一些语言 </p>
 <br />
 
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Tingfenghhh&layout=compact)](https://github.com/lisentowind/github-readme-stats)
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=lisentowind&layout=compact)](https://github.com/lisentowind/github-readme-stats)
 <br />
 
 <br />
