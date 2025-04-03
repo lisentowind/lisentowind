@@ -7,6 +7,8 @@
   
 [tingfeng的小世界](https://lisentowind.github.io/dist/index.html#/user-info)
 
+
+
 <h4>平时都是在公司的gitlab和gitee上进行提交，但我很喜欢在github上收藏一些有趣的开源项目
 
 <p> 我常用的一些语言 </p>
@@ -17,8 +19,7 @@
 
 <br />
 
-![Dusai's GitHub stats](https://github-readme-stats.vercel.app/api?username=lisentowind&show_icons=true&theme=radical)
-
+![Dusai's GitHub stats](https://github-readme-stats.vercel.app/api?username=lisentowind&show_icons=true&theme=github)
 
 <!---
 Tingfenghhh/Tingfenghhh is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
