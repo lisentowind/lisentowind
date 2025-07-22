@@ -1,14 +1,12 @@
 <h1 align="center">👋 一个开发菜鸟，没错就是我 HaHa</h1>
 
-<p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=4FC08D&center=true&vCenter=true&width=435&lines=你好，我是听风极;欢迎来到我的 GitHub 世界~;Vue / TypeScript / CSS 爱好者" />
-</p>
+<img src="https://raw.githubusercontent.com/Lalit2005/Quote-Readme/main/quote.svg" alt="每日一句" style="display: block; margin: 0 auto;" />
 
 ---
 
-## 🪴 这是我的博客（PS：有空才更新 ☺）
+## 🌱 我的博客
 
-👉 [tingfeng的小世界](https://lisentowind.github.io/dist/index.html#/user-info)
+👉 [tingfeng的小世界](https://lisentowind.github.io/dist/index.html#/user-info)（有空才更新 ☺）
 
 ---
 
@@ -23,7 +21,7 @@
 
 ## 🛠️ 常用语言和技能
 
-<p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px;">
   <img src="https://img.shields.io/badge/Vue-4FC08D?logo=vue.js&logoColor=white" />
   <img src="https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black" />
   <img src="https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white" />
@@ -34,7 +32,7 @@
   <img src="https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=white" />
   <img src="https://img.shields.io/badge/SCSS-CC6699?logo=sass&logoColor=white" />
   <img src="https://img.shields.io/badge/Less-1D365D?logo=less&logoColor=white" />
-</p>
+</div>
 
 ---
 
@@ -44,8 +42,22 @@
   <img src="https://github-readme-stats.vercel.app/api?username=lisentowind&show_icons=true&theme=github" alt="GitHub Stats" />
 </p>
 
+---
+
+## 🧾 GitHub Cards
+
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=lisentowind&layout=compact&theme=default" alt="Top Langs" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=lisentowind&theme=github_dark" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=lisentowind&theme=github_dark" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=lisentowind&theme=github_dark&utcOffset=8" />
+</p>
+
+---
+
+## 🔥 GitHub 贡献热力图
+
+<p align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=lisentowind&theme=github-compact" alt="GitHub Contribution Graph" />
 </p>
 
 ---
