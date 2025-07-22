@@ -1,15 +1,5 @@
 <h1 align="center">👋 一个开发菜鸟，没错就是我 HaHa</h1>
 
-<img src="https://raw.githubusercontent.com/Lalit2005/Quote-Readme/main/quote.svg" alt="每日一句" style="display: block; margin: 0 auto;" />
-
----
-
-## 🌱 我的博客
-
-👉 [tingfeng的小世界](https://lisentowind.github.io/dist/index.html#/user-info)（有空才更新 ☺）
-
----
-
 ## 🚀 关于我
 
 - 🧑‍💻 平时主要在公司 GitLab 和 Gitee 上开发
@@ -32,7 +22,12 @@
   <img src="https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=white" />
   <img src="https://img.shields.io/badge/SCSS-CC6699?logo=sass&logoColor=white" />
   <img src="https://img.shields.io/badge/Less-1D365D?logo=less&logoColor=white" />
+  <img src="https://img.shields.io/badge/Electron-47848F?logo=electron&logoColor=white" />
+  <img src="https://img.shields.io/badge/Wails-1F2233?logo=go&logoColor=white" />
+  <img src="https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white" />
+  <img src="https://img.shields.io/badge/Express-000000?logo=express&logoColor=white" />
 </div>
+
 
 ---
 
@@ -72,7 +67,7 @@
 
 ## 👀 访客统计
 
-<p align="center">
+<p>
   <img src="https://komarev.com/ghpvc/?username=lisentowind&label=Visitors&color=0e75b6&style=flat" alt="访客统计" />
 </p>
 
