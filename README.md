@@ -41,16 +41,6 @@
 
 ---
 
-## 🧾 GitHub Cards
-
-<p align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=lisentowind&theme=github_dark" />
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=lisentowind&theme=github_dark" />
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=lisentowind&theme=github_dark&utcOffset=8" />
-</p>
-
----
-
 ## 🔥 GitHub 贡献热力图
 
 <p align="center">
@@ -72,7 +62,3 @@
 <p>
   <img src="https://komarev.com/ghpvc/?username=lisentowind&label=Visitors&color=0e75b6&style=flat" alt="访客统计" />
 </p>
-
----
-
-> ⛵ 愿代码与你同在，有事没事来 GitHub 转转 ✨
