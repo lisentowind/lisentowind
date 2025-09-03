@@ -33,6 +33,11 @@
 
 ---
 
+<details>
+<summary>📊 GitHub 活跃数据 / 贡献热力图 / 奖杯墙 / 访客统计</summary>
+
+---
+
 ## 📊 GitHub 活跃数据
 
 <p align="center">
@@ -62,3 +67,5 @@
 <p>
   <img src="https://komarev.com/ghpvc/?username=lisentowind&label=Visitors&color=0e75b6&style=flat" alt="访客统计" />
 </p>
+
+</details>
