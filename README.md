@@ -35,17 +35,7 @@
 ---
 
 <details>
-<summary>📊 GitHub 活跃数据 / 贡献热力图 / 奖杯墙 / 访客统计</summary>
-
----
-
-## 📊 GitHub 活跃数据
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=lisentowind&show_icons=true&theme=github" alt="GitHub Stats" />
-</p>
-
----
+<summary> 贡献热力图 / 奖杯墙 / 访客统计</summary>
 
 ## 🔥 GitHub 贡献热力图
 
