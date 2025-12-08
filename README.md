@@ -29,30 +29,6 @@
   <img src="https://img.shields.io/badge/tauri-24C8DB?style=for-the-badge&logo=tauri&logoColor=white" />
 </div>
 
-
-
-
----
-
-<details>
-<summary> 贡献热力图 / 奖杯墙 / 访客统计</summary>
-
-## 🔥 GitHub 贡献热力图
-
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=lisentowind&theme=github-compact" alt="GitHub Contribution Graph" />
-</p>
-
----
-
-## 🏆 奖杯墙（装饰一下 😎）
-
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=lisentowind&theme=gruvbox&margin-w=10&row=2&column=3" />
-</p>
-
----
-
 ## 👀 访客统计
 
 <p>
