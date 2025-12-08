@@ -1,4 +1,4 @@
-<h1 align="center">👋 一个开发菜鸟，没错就是我 HaHa</h1>
+<h1 align="center">👋 一个开发菜鸟 HaHa</h1>
 
 ## 🚀 关于我
 
