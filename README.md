@@ -27,6 +27,8 @@
   <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" />
   <img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white" />
   <img src="https://img.shields.io/badge/tauri-24C8DB?style=for-the-badge&logo=tauri&logoColor=white" />
+  <img src="https://img.shields.io/badge/OpenLayers-1F6B75?style=for-the-badge&logo=openlayers&logoColor=white" />
+  <img src="https://img.shields.io/badge/Cesium-6CADDF?style=for-the-badge&logo=cesium&logoColor=white" />
 </div>
 
 ## 👀 访客统计
